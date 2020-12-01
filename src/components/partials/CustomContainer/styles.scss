@@ -1,0 +1,47 @@
+@import "../../assets/styles/variables";
+
+.custom-container {
+  margin: 0px auto;
+}
+
+
+@media only screen and (min-width: 768px) {
+  .custom-container {
+    width: 750px;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .custom-container {
+    width: 970px;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .custom-container {
+    width: 1170px;
+  }
+}
+
+
+.vertical-padding {
+  padding-top: $vertical-section-padding;
+  padding-bottom: $vertical-section-padding;
+}
+
+.horizontal-padding {
+  padding-left: $horizontal-section-padding;
+  padding-right: $horizontal-section-padding;
+}
+
+@media only screen and (max-width: 1130px) {
+  .vertical-padding {
+    padding-top: $vertical-mobile-padding;
+    padding-bottom: $vertical-mobile-padding;
+  }
+
+  .horizontal-padding {
+    padding-left: $horizontal-mobile-padding;
+    padding-right: $horizontal-mobile-padding;
+  }
+}

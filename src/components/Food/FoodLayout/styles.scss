@@ -1,0 +1,94 @@
+@import "../../assets/styles/_variables";
+
+.food-outer {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    grid-template-areas: "Imagen Content";
+    grid-template-rows: 1fr;
+    row-gap: 0px;
+    padding: 15px 20px;
+    background-color: #2d3436 !important;
+    color: $textColor !important;
+    background-image: linear-gradient(315deg, #2d3436 0%, #000000 74%) !important;
+    h1 {
+        font-size: 25px;
+        font-weight: 700 !important;
+    }
+    .food-Image {
+        grid-area: Imagen;
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
+        .gatsby-image-wrapper {
+            min-width: 100%;
+            -webkit-box-shadow: 0 8px 6px -6px $textColor;
+            -moz-box-shadow:    0 8px 6px -6px $textColor;
+            box-shadow:         0 8px 6px -6px $textColor;
+        }
+    }
+    .content {
+        display: flex;
+        flex-flow: row;
+        grid-area: Content;
+        justify-content: space-between;
+        transition: opacity 500ms ease 0s;
+        .text {
+            display: flex;
+            flex-flow: column;
+            justify-content: center;
+            margin: 0px 30px;
+        }
+        .price {
+            text-align: right;
+            display: flex;
+            flex-flow: column;
+            justify-content: center;
+            h1 {
+                font-weight: 500 !important;
+            }
+        }
+    }
+
+    border-top: $borderpx solid $borderColor;
+}
+
+@media only screen and (max-width: 660px) {
+    .food-outer {
+        grid-template-rows: 1fr 1fr;
+        row-gap: 10px;
+        grid-template-areas: "Imagen"
+                             "Content";
+        grid-template-columns: 1fr;
+        .content .text {
+            margin-left: 0px;
+            margin-right: 20px;
+        }
+        .food-Image {
+            .gatsby-image-wrapper {
+                min-width: 50%;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .content {
+        p {
+            font-size: 15px !important;
+        }
+        h1 {
+            font-size: 15px !important;
+        }
+    }
+}
+@media only screen and (max-width: 375px) {
+    .content {
+        p {
+            font-size: 10px !important;
+        }
+        h1 {
+            font-size: 10px !important;
+        }
+    }
+}

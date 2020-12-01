@@ -1,0 +1,130 @@
+const data = [
+    {
+        image: "gimmari.png", 
+        title: "KimMari, 김말이 🌱", 
+        description: "Fideos fritos de camote envuelto con Alga seca (Nori, kim ).",
+        price: "CLP 5,700",
+    },
+    {
+        image: "kimbab.png", 
+        title: "Kimbap, 김밥. 🍃", 
+        description: "Roll al estilo coreano envuelto en nori, con delicioso arroz condimentado, kanikama y variedad de verduras.",
+        price: "CLP 6,300",
+    },
+    {
+        image: "zizimi.png", 
+        title: "Zizimi ,파전 🍃", 
+        description: "Tortilla hecha de verduras finas escogidas por la chef, camarones y un huevo sobre la tortilla.",
+        price: "CLP 12,000",
+    },
+    {
+        image: "gochujeon.png", 
+        title: "Kochu jeon, 고추전", 
+        description: "Aji relleno con carne molida y verdura",
+        price: "CLP 6,900",
+    },
+    {
+        image: "saengsunjeon.png", 
+        title: "SengSun Jeon, 생선전", 
+        description: "Filete de pescado marinado con huevo y un toque de sal.  Incluye salsa de soya",
+        price: "CLP 6,500",
+    },
+    {
+        image: "kimchijeon.png", 
+        title: "Kimchi Jeon, 김치전 🌶", 
+        description: "Tortilla hecha en base de nuestro imperdible kimchi de la casa, junto con verduras picadas a la perfeccion.",
+        price: "CLP 11,00",
+    },
+    {
+        image: "saewoomandu.png", 
+        title: "Saewoo Mandu, 새우만두", 
+        description: "Empanada estilo coreano, relleno con camaron y verduras. Puede ser frito o al vapor",
+        price: "CLP 6,500",
+    },
+    {
+        image: "kimchimandu.png", 
+        title: "Kimchi mandu, 김치 만두 🌶", 
+        description: "Deliciosas empanadas al estilo coreano con relleno de kimchi y verduras. Cocinadas a eleccion, vapor o frito.",
+        price: "CLP 6,300",
+    },
+    {
+        image: "gunmandu.png", 
+        title: "Kunmandu ,군만두", 
+        description: "Empanda estilo koreano, relleno de carne cerdo y verdura  frito",
+        price: "CLP 6,300",
+    },
+    {
+        image: "zzimmandu.png", 
+        title: "Zzimman du, 찜 만두", 
+        description: "Empanada estilo coreano , rellenado con carne de cerdo y verdura al vapor.",
+        price: "CLP 6,300",
+    },
+    {
+        image: "jokbal.png", 
+        title: "JokBal, 족발", 
+        description: "Pernil de cerdo hervido por horas aliñado con la receta de la familia . Incluye una salsa de camaron.",
+        price: "CLP 12,000",
+    },
+    {
+        image: "golbaengmuchim.png", 
+        title: "Gol Baeng I Muchim 🌶🌶, 골뱅이 무침", 
+        description: "Fideo en base de harina acompañado con una mezcla de salsa picante, verduras y caracol de mar",
+        price: "CLP 12,500",
+    },
+    {
+        image: "chickenkkochi.png", 
+        title: "Dakkochi,닭 꼬치", 
+        description: "Brocheta de pollo con salsa agridulce natural hecho en casa. Por Cada porcion vienen 5 unidades",
+        price: "CLP 6,900",
+    },
+    {
+        image: "hotbar.png", 
+        title: "Hot Ba, 핫바", 
+        description: "Torta de pescado frito acompañado con salsa de soya",
+        price: "CLP 5,900",
+    },
+    {
+        image: "japchae.png", 
+        title: "Chapche, 잡채 🌱", 
+        description: "Aji relleno con carne molida y verdura",
+        price: "CLP 5,900",
+    },
+    {
+        image: "ddukgochi.png", 
+        title: "Tok Ko Chi, 떡꼬치  🌶 🌱", 
+        description: "Factura de arroz crujiente por fuera y suave por dentro cubierto por una deliciosa salsa picante de la casa. Por si desean pueden pedir la salsa aparte",
+        price: "CLP 5,900",
+    },
+    {
+        image: "ppulsora.png", 
+        title: "Sora,  뿔소라", 
+        description: "Caracoles de mar al vapor acompañado con una deliciosa salsa picante",
+        price: "CLP 17,000",
+    },
+    {
+        image: "verdurafrita.png", 
+        title: "Verdura frita, 야채 튀김 🌱", 
+        description: "Surtido de verduras frescas freidas dandole  un toque crujiente y delicioso",
+        price: "CLP 6,500",
+    },
+    {
+        image: "gamjasaewoo.png", 
+        title: "Camaron papa, 새우감자", 
+        description: "Crujientes camarones fritos envuelto en laminas finas de papas doradas",
+        price: "CLP 6,300",
+    },
+    {
+        image: "friedshrimp.png", 
+        title: "Saewoo tyiguim,새우튀김", 
+        description: "Camarones ecuatorianos fritos con panko. Ebi Tempura",
+        price: "CLP 11,500",
+    },
+    {
+        image: "tteokbokki.png", 
+        title: "Tteok bok ki, 떡 볶이🌶🌶", 
+        description: "Una mezcla perfecta de factura de arroz, factura de pescado, huevo y nuestra tradicional salsa picante de aji",
+        price: "CLP 7,500",
+    },
+  ];
+
+  export default data;

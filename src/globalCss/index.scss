@@ -1,0 +1,23 @@
+html,
+body {
+    padding: 0px;
+    margin: 0px;
+    color: rgb(72, 72, 72);
+    font-family: 'Times New Roman', Times, serif !important;
+}
+
+*:focus {
+    outline: none !important;
+}
+
+*:active {
+    outline: none;
+}
+
+* {
+    font-size: "Open sans", sans-serif;
+}
+
+p {
+    margin: unset;
+}
