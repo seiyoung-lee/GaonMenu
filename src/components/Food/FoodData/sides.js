@@ -20,7 +20,7 @@ const data = [
     {
         image: "banchan.png", 
         title: "Kimchi, 김치 🌶", 
-        description: "3 tipos de acompañamientos diferentes que se incluye con el plato de fondo, pero se pedir adicionalmente",
+        description: "3 tipos de acompañamientos diferentes que se incluye con el plato de fondo, pero se puede pedir adicionalmente",
         price: "",
     },
   ];

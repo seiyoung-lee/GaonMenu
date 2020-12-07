@@ -7,19 +7,19 @@
 
 @media only screen and (min-width: 768px) {
   .custom-container {
-    width: 750px;
+    max-width: 750px;
   }
 }
 
 @media only screen and (min-width: 992px) {
   .custom-container {
-    width: 970px;
+    max-width: 970px;
   }
 }
 
 @media only screen and (min-width: 1200px) {
   .custom-container {
-    width: 1170px;
+    max-width: 1170px;
   }
 }
 

@@ -125,6 +125,12 @@ const data = [
         description: "Una mezcla perfecta de factura de arroz, factura de pescado, huevo y nuestra tradicional salsa picante de aji",
         price: "CLP 7,500",
     },
+    {
+        image: "omelet.png", 
+        title: "Omelet, 계란말이", 
+        description: "Omelet enrollado estilo oriental con verduras surtidas acompañado con salsa ketchup.",
+        price: "CLP 9,500",
+    },
   ];
 
   export default data;

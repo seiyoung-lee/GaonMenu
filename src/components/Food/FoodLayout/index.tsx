@@ -5,14 +5,14 @@ import './styles.scss';
 
 
 const FoodLayOut = (props) => {
-    const { data } = props
+    const { data } = props;
 
       const TheImageYouWant = data.filter(edge => edge.node.fluid.originalName === props.image)
         .map(myImage => <Img fluid={myImage.node.fluid} />);
 
 
     return (
-        <div className = "food-outer">
+        <div className = "food-outer" onClick  = {props.onClick}>
             <div className = "food-Image">
                 {TheImageYouWant}
             </div>

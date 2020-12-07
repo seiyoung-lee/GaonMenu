@@ -17,6 +17,12 @@ const data = [
         description: "Sopa de tofu suave con caldo de almeja y huevo.",
         price: "CLP 7,900",
     },
+    {
+        image: "tofuzzorim.png", 
+        title: "Tofu llorim, 두부 조림 🌶🌱", 
+        description: "Tofu cocido con cebolla aliñado con soya y aji polvo.",
+        price: "CLP 9,500",
+    },
   ];
   
   export default data;

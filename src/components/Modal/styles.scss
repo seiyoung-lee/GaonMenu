@@ -1,0 +1,67 @@
+@import "../assets/styles/_variables";
+
+.modal {
+    width: 100%;
+    height: 100vh;
+    background-color: $black !important;
+    .MuiIconButton-colorInherit {
+        color: $textColor !important;
+    }
+    .MuiAppBar-colorPrimary {
+        background-color: $black;
+    }
+    .custom-container {
+        background-color: $black !important;
+        padding-bottom: 20px;
+    }
+}
+
+.OverView {
+    max-width: unset;
+    background-color: $black;
+    color: $textColor;
+    height: 100%;
+    .OverView_Image {
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
+        .gatsby-image-wrapper {
+            min-width: 90%;
+            -webkit-box-shadow: 0 8px 6px -6px $textColor;
+            -moz-box-shadow:    0 8px 6px -6px $textColor;
+            box-shadow:         0 8px 6px -6px $textColor;
+        }
+    }
+    .OverView_text {
+        padding-top: 25px;
+        h4 {
+            font-size: 25px;
+            font-weight: 400;
+            margin-top: 17px;
+            margin-bottom: 0;
+        }
+        strong {
+            font-weight: 600;
+        }
+    }
+}
+
+@media only screen and (min-width: 499px) {
+    .OverView {
+        min-width: 350px;
+        max-width: 960px;
+        .OverView_Image {
+            .gatsby-image-wrapper {
+                min-width: 70%;
+            }
+        }
+        h4 {
+            font-size: 17px;
+            font-weight: 400;
+        }
+    }
+    .modal {
+        height: unset;
+    }
+}

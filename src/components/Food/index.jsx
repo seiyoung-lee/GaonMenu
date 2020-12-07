@@ -1,10 +1,8 @@
-import React, {useState} from 'react';
-import Accordion from '@material-ui/core/Accordion';
-import AccordionDetails from '@material-ui/core/AccordionDetails';
-import AccordionSummary from '@material-ui/core/AccordionSummary';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import React, {useState, useEffect} from 'react';
+
 import { useStaticQuery, graphql } from "gatsby";
 import CustomContainer from '../partials/CustomContainer';
+import OverViewModal from '../Modal/OverView';
 
 import FoodLayout from './FoodLayout';
 
@@ -24,16 +22,32 @@ import Sides from './FoodData/sides';
 import Alcohol from './FoodData/alcohol';
 import Special from './FoodData/special';
 
+import Accordion from '@material-ui/core/Accordion';
+import AccordionDetails from '@material-ui/core/AccordionDetails';
+import AccordionSummary from '@material-ui/core/AccordionSummary';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+
+
 import './styles.scss';
 
 const Food = (props) => {
     const [expanded, setExpanded] = useState(false);
+    const [overView, setOverView] = useState(false);
+    const [modalInfo, setModalInfo] = useState({"text": "", "title": "", "img" : "", "price" : ""});
+    
     
 
     const handleChange = (panel) => (event, isExpanded) => {
         setExpanded(isExpanded ? panel : false);
         props.scroll(panel);
     };
+
+    useEffect(() => {
+        if(modalInfo["title"] !== "") {
+            setOverView(true);
+        }
+    }, [modalInfo])
+
 
       const data = useStaticQuery(
         graphql`
@@ -54,8 +68,22 @@ const Food = (props) => {
         <div className = "foodOuter" >
             <CustomContainer>
             <center>
-                <h1 style = {{textTransform: "uppercase"}} className = "title"> Nuestro Menu </h1>
+                <h1 style = {{textTransform: "uppercase"}} className = "title"> Nuestro Menu <br />
+                    <small style = {{textTransform: "unset"}} > Selecciona  la  comida  que  quieras  para  agrandar </small>
+                </h1>
             </center>
+            <OverViewModal 
+                open = {overView}
+                handleClose = {() => {
+                    setOverView(false);
+                    setModalInfo({"text": "", "title": "", "img" : "", "price" : ""});
+                }}
+                img = {modalInfo["img"]}
+                desc = {modalInfo["text"]}
+                title = {modalInfo["title"]}
+                price  = {modalInfo["price"]}
+                data = {data.allImageSharp.edges} 
+            />
             <Accordion expanded={expanded === 'entrada'} onChange={handleChange('entrada')}>
                 <AccordionSummary
                 expandIcon={<ExpandMoreIcon />}
@@ -72,13 +100,21 @@ const Food = (props) => {
                             전체 요리
                         </h1>
                     </div>
-                    {EntradaData.map((entrada) => (
+                    {EntradaData.map((food) => (
                         <FoodLayout
                         data = {data.allImageSharp.edges} 
-                        image = {entrada.image}
-                        title = {entrada.title}
-                        description = {entrada.description}
-                        price = {entrada.price}
+                        image = {food.image}
+                        title = {food.title}
+                        description = {food.description}
+                        price = {food.price}
+                        onClick = {() => {
+                            setModalInfo({
+                                "text": food.description, 
+                                "title": food.title, 
+                                "img" : food.image,
+                                "price" : food.price
+                            })
+                        }}
                         />
                     ))}
                 </AccordionDetails>
@@ -103,13 +139,21 @@ const Food = (props) => {
                             추가/반찬
                         </h1>
                     </div>
-                    {Sides.map((entrada) => (
+                    {Sides.map((food) => (
                         <FoodLayout
                         data = {data.allImageSharp.edges} 
-                        image = {entrada.image}
-                        title = {entrada.title}
-                        description = {entrada.description}
-                        price = {entrada.price}
+                        image = {food.image}
+                        title = {food.title}
+                        description = {food.description}
+                        price = {food.price}
+                        onClick = {() => {
+                            setModalInfo({
+                                "text": food.description, 
+                                "title": food.title, 
+                                "img" : food.image,
+                                "price" : food.price
+                            })
+                        }}
                         />
                     ))}
                 </AccordionDetails>
@@ -135,13 +179,21 @@ const Food = (props) => {
                             소고기 류
                         </h1>
                     </div>
-                    {VacunoData.map((entrada) => (
+                    {VacunoData.map((food) => (
                         <FoodLayout
                         data = {data.allImageSharp.edges} 
-                        image = {entrada.image}
-                        title = {entrada.title}
-                        description = {entrada.description}
-                        price = {entrada.price}
+                        image = {food.image}
+                        title = {food.title}
+                        description = {food.description}
+                        price = {food.price}
+                        onClick = {() => {
+                            setModalInfo({
+                                "text": food.description, 
+                                "title": food.title, 
+                                "img" : food.image,
+                                "price" : food.price
+                            })
+                        }}
                         />
                     ))}
                 </AccordionDetails>
@@ -167,13 +219,21 @@ const Food = (props) => {
                             돼지고기 류
                         </h1>
                     </div>
-                    {CerdoData.map((entrada) => (
+                    {CerdoData.map((food) => (
                         <FoodLayout
                         data = {data.allImageSharp.edges} 
-                        image = {entrada.image}
-                        title = {entrada.title}
-                        description = {entrada.description}
-                        price = {entrada.price}
+                        image = {food.image}
+                        title = {food.title}
+                        description = {food.description}
+                        price = {food.price}
+                        onClick = {() => {
+                            setModalInfo({
+                                "text": food.description, 
+                                "title": food.title, 
+                                "img" : food.image,
+                                "price" : food.price
+                            })
+                        }}
                         />
                     ))}
                 </AccordionDetails>
@@ -199,13 +259,21 @@ const Food = (props) => {
                             닭
                         </h1>
                     </div>
-                    {PolloData.map((entrada) => (
+                    {PolloData.map((food) => (
                         <FoodLayout
                         data = {data.allImageSharp.edges} 
-                        image = {entrada.image}
-                        title = {entrada.title}
-                        description = {entrada.description}
-                        price = {entrada.price}
+                        image = {food.image}
+                        title = {food.title}
+                        description = {food.description}
+                        price = {food.price}
+                        onClick = {() => {
+                            setModalInfo({
+                                "text": food.description, 
+                                "title": food.title, 
+                                "img" : food.image,
+                                "price" : food.price
+                            })
+                        }}
                         />
                     ))}
                 </AccordionDetails>
@@ -231,13 +299,21 @@ const Food = (props) => {
                             생선 요리
                         </h1>
                     </div>
-                    {Mariscos.map((entrada) => (
+                    {Mariscos.map((food) => (
                         <FoodLayout
                         data = {data.allImageSharp.edges} 
-                        image = {entrada.image}
-                        title = {entrada.title}
-                        description = {entrada.description}
-                        price = {entrada.price}
+                        image = {food.image}
+                        title = {food.title}
+                        description = {food.description}
+                        price = {food.price}
+                        onClick = {() => {
+                            setModalInfo({
+                                "text": food.description, 
+                                "title": food.title, 
+                                "img" : food.image,
+                                "price" : food.price
+                            })
+                        }}
                         />
                     ))}
                 </AccordionDetails>
@@ -263,13 +339,21 @@ const Food = (props) => {
                             스페셜 메뉴
                         </h1>
                     </div>
-                    {Special.map((entrada) => (
+                    {Special.map((food) => (
                         <FoodLayout
                         data = {data.allImageSharp.edges} 
-                        image = {entrada.image}
-                        title = {entrada.title}
-                        description = {entrada.description}
-                        price = {entrada.price}
+                        image = {food.image}
+                        title = {food.title}
+                        description = {food.description}
+                        price = {food.price}
+                        onClick = {() => {
+                            setModalInfo({
+                                "text": food.description, 
+                                "title": food.title, 
+                                "img" : food.image,
+                                "price" : food.price
+                            })
+                        }}
                         />
                     ))}
                 </AccordionDetails>
@@ -295,13 +379,21 @@ const Food = (props) => {
                             전통 한국 음식
                         </h1>
                     </div>
-                    {Tipical.map((entrada) => (
+                    {Tipical.map((food) => (
                         <FoodLayout
                         data = {data.allImageSharp.edges} 
-                        image = {entrada.image}
-                        title = {entrada.title}
-                        description = {entrada.description}
-                        price = {entrada.price}
+                        image = {food.image}
+                        title = {food.title}
+                        description = {food.description}
+                        price = {food.price}
+                        onClick = {() => {
+                            setModalInfo({
+                                "text": food.description, 
+                                "title": food.title, 
+                                "img" : food.image,
+                                "price" : food.price
+                            })
+                        }}
                         />
                     ))}
                 </AccordionDetails>
@@ -327,13 +419,21 @@ const Food = (props) => {
                             면 종류
                         </h1>
                     </div>
-                    {Fideos.map((entrada) => (
+                    {Fideos.map((food) => (
                         <FoodLayout
                         data = {data.allImageSharp.edges} 
-                        image = {entrada.image}
-                        title = {entrada.title}
-                        description = {entrada.description}
-                        price = {entrada.price}
+                        image = {food.image}
+                        title = {food.title}
+                        description = {food.description}
+                        price = {food.price}
+                        onClick = {() => {
+                            setModalInfo({
+                                "text": food.description, 
+                                "title": food.title, 
+                                "img" : food.image,
+                                "price" : food.price
+                            })
+                        }}
                         />
                     ))}
                 </AccordionDetails>
@@ -359,13 +459,21 @@ const Food = (props) => {
                             밥
                         </h1>
                     </div>
-                    {Arroz.map((entrada) => (
+                    {Arroz.map((food) => (
                         <FoodLayout
                         data = {data.allImageSharp.edges} 
-                        image = {entrada.image}
-                        title = {entrada.title}
-                        description = {entrada.description}
-                        price = {entrada.price}
+                        image = {food.image}
+                        title = {food.title}
+                        description = {food.description}
+                        price = {food.price}
+                        onClick = {() => {
+                            setModalInfo({
+                                "text": food.description, 
+                                "title": food.title, 
+                                "img" : food.image,
+                                "price" : food.price
+                            })
+                        }}
                         />
                     ))}
                 </AccordionDetails>
@@ -391,13 +499,21 @@ const Food = (props) => {
                             두부 요리
                         </h1>
                     </div>
-                    {Tofu.map((entrada) => (
+                    {Tofu.map((food) => (
                         <FoodLayout
                         data = {data.allImageSharp.edges} 
-                        image = {entrada.image}
-                        title = {entrada.title}
-                        description = {entrada.description}
-                        price = {entrada.price}
+                        image = {food.image}
+                        title = {food.title}
+                        description = {food.description}
+                        price = {food.price}
+                        onClick = {() => {
+                            setModalInfo({
+                                "text": food.description, 
+                                "title": food.title, 
+                                "img" : food.image,
+                                "price" : food.price
+                            })
+                        }}
                         />
                     ))}
                 </AccordionDetails>
@@ -423,13 +539,21 @@ const Food = (props) => {
                             죽
                         </h1>
                     </div>
-                    {Juk.map((entrada) => (
+                    {Juk.map((food) => (
                         <FoodLayout
                         data = {data.allImageSharp.edges} 
-                        image = {entrada.image}
-                        title = {entrada.title}
-                        description = {entrada.description}
-                        price = {entrada.price}
+                        image = {food.image}
+                        title = {food.title}
+                        description = {food.description}
+                        price = {food.price}
+                        onClick = {() => {
+                            setModalInfo({
+                                "text": food.description, 
+                                "title": food.title, 
+                                "img" : food.image,
+                                "price" : food.price
+                            })
+                        }}
                         />
                     ))}
                 </AccordionDetails>
@@ -455,13 +579,21 @@ const Food = (props) => {
                             후식
                         </h1>
                     </div>
-                    {Postres.map((entrada) => (
+                    {Postres.map((food) => (
                         <FoodLayout
                         data = {data.allImageSharp.edges} 
-                        image = {entrada.image}
-                        title = {entrada.title}
-                        description = {entrada.description}
-                        price = {entrada.price}
+                        image = {food.image}
+                        title = {food.title}
+                        description = {food.description}
+                        price = {food.price}
+                        onClick = {() => {
+                            setModalInfo({
+                                "text": food.description, 
+                                "title": food.title, 
+                                "img" : food.image,
+                                "price" : food.price
+                            })
+                        }}
                         />
                     ))}
                 </AccordionDetails>
@@ -486,13 +618,21 @@ const Food = (props) => {
                             Bebidas <br />  <br /> 음료수
                         </h1>
                     </div>
-                    {Bebidas.map((entrada) => (
+                    {Bebidas.map((food) => (
                         <FoodLayout
                         data = {data.allImageSharp.edges} 
-                        image = {entrada.image}
-                        title = {entrada.title}
-                        description = {entrada.description}
-                        price = {entrada.price}
+                        image = {food.image}
+                        title = {food.title}
+                        description = {food.description}
+                        price = {food.price}
+                        onClick = {() => {
+                            setModalInfo({
+                                "text": food.description, 
+                                "title": food.title, 
+                                "img" : food.image,
+                                "price" : food.price
+                            })
+                        }}
                         />
                     ))}
                     <div className = "border"/>
@@ -501,13 +641,21 @@ const Food = (props) => {
                             Bebidas Alcoholicas <br /> <br /> 술
                         </h1>
                     </div>
-                    {Alcohol.map((entrada) => (
+                    {Alcohol.map((food) => (
                         <FoodLayout
                         data = {data.allImageSharp.edges} 
-                        image = {entrada.image}
-                        title = {entrada.title}
-                        description = {entrada.description}
-                        price = {entrada.price}
+                        image = {food.image}
+                        title = {food.title}
+                        description = {food.description}
+                        price = {food.price}
+                        onClick = {() => {
+                            setModalInfo({
+                                "text": food.description, 
+                                "title": food.title, 
+                                "img" : food.image,
+                                "price" : food.price
+                            })
+                        }}
                         />
                     ))}
                 </AccordionDetails>
