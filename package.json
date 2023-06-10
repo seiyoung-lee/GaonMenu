@@ -9,7 +9,7 @@
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
     "classnames": "^2.2.6",
-    "gatsby": "^2.26.1",
+    "gatsby": "^4.25.7",
     "gatsby-image": "^2.6.0",
     "gatsby-plugin-material-ui": "^2.1.10",
     "gatsby-plugin-react-helmet": "^3.4.0",
